@@ -1,6 +1,7 @@
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+/* Reflection API is to execute the functions specified in string variables*/
 public class ReflectionApi {
     public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         String methodName = "sampleFunction";

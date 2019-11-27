@@ -24,3 +24,18 @@ wait.until(ExpectedConditions.visibilityOf(driver.findElementBy.Id("xyz")));
 * Static wait
 * Should not be used frequently
 <h4>HashSets to fetch different windows opened</h4>
+<h3> Alerts, Frames and Mouse Actions:
+* Alerts
+    * When native java script alerts are displayed, we need to make the driver point to the alert window in order to perform operations/verify text displayed in the alert
+    * To do so, we can use driver.switchTo().Alert() function => returns Alert object
+* Frames
+    * Frames are html pages within an another HTML page
+    * In order to perform operations on frames, we need to point our driver to the frame. 
+    * Can be done using driver.switchTo().frame(\<frameIndex\>); statement
+    * Can get the number of frames present in the web page using: driver.findElements(By.tagName("frame")).size();
+* MouseActions
+    * Sometimes we will come across draggable objects in our web applications
+    * Mouse actions can be done on such objects
+    * Statement for mouse actions: Actions action = new Actions(driver);
+    * action.dragAndDrop(\<srcWebElement>, \<destWebElement>).build().perform();
+*

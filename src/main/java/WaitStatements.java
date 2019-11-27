@@ -16,7 +16,7 @@ public class WaitStatements {
         System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/drivers/geckodriver");
         WebDriver driver = new FirefoxDriver();
         driver.manage().window().maximize(); // => To maximize the window
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS); //=> implicit wait
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         driver.manage().timeouts().setScriptTimeout(30,TimeUnit.SECONDS);
 
