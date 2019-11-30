@@ -9,33 +9,42 @@ Commit for the above topics: https://github.com/writetoprabha/SeleniumJavaWorkou
 
 <h3>Different waits supported in Selenium</h3>
 <h4>Implicit Wait:</h4>
-* it is the default timeout for all the driver.findElement statements.
-* If the element is not located within the given timeout SLA, NoSuchElementFound exception will be thrown
-* driver.manage.timeouts().implicitlyWait(20, TimeUnit.SECONDS); <br>
-* driver.manage.timeouts().pageLoadTimeout(20, TimeUnit.SECONDS); => to make selenium wait for 20 seconds for page load <br>
-* driver.manage.timeouts().setScriptTimeout(20, Timeunit.SECONDS); => to make selenium wait for ajax scripts to execute
+<li>it is the default timeout for all the driver.findElement statements.
+<li>If the element is not located within the given timeout SLA, NoSuchElementFound exception will be thrown
+<li>driver.manage.timeouts().implicitlyWait(20, TimeUnit.SECONDS); <br>
+<li>driver.manage.timeouts().pageLoadTimeout(20, TimeUnit.SECONDS); => to make selenium wait for 20 seconds for page load <br>
+<li>driver.manage.timeouts().setScriptTimeout(20, Timeunit.SECONDS); => to make selenium wait for ajax scripts to execute
 <h4>Explicity Wait</h4>
-* To make selenium wait for an element
-* Sample Code: <br>
+<li>To make selenium wait for an element
+<li>Sample Code: <br>
 WebDriverWait wait = new WebDriverWait(driver, 10);  => takes the driver and timeout in seconds as input<br>
 wait.until(ExpectedConditions.visibilityOf(driver.findElementBy.Id("xyz")));
-* dynamic in nature => Waits only until the visibility of the element
+<li>dynamic in nature => Waits only until the visibility of the element
 <h4>Thread.sleep()<h4>
-* Static wait
-* Should not be used frequently
+<li>Static wait
+<li>Should not be used frequently
 <h4>HashSets to fetch different windows opened</h4>
 <h3> Alerts, Frames and Mouse Actions:
-* Alerts
-    * When native java script alerts are displayed, we need to make the driver point to the alert window in order to perform operations/verify text displayed in the alert
-    * To do so, we can use driver.switchTo().Alert() function => returns Alert object
-* Frames
-    * Frames are html pages within an another HTML page
-    * In order to perform operations on frames, we need to point our driver to the frame. 
-    * Can be done using driver.switchTo().frame(\<frameIndex\>); statement
-    * Can get the number of frames present in the web page using: driver.findElements(By.tagName("frame")).size();
-* MouseActions
-    * Sometimes we will come across draggable objects in our web applications
-    * Mouse actions can be done on such objects
-    * Statement for mouse actions: Actions action = new Actions(driver);
-    * action.dragAndDrop(\<srcWebElement>, \<destWebElement>).build().perform();
-*
+<h4>Alerts
+<li> When native java script alerts are displayed, we need to make the driver point to the alert window in order to perform operations/verify text displayed in the alert
+<li>To do so, we can use driver.switchTo().Alert() function => returns Alert object
+<h4>Frames
+<li>Frames are html pages within an another HTML page
+<li>In order to perform operations on frames, we need to point our driver to the frame. 
+<li> Can be done using driver.switchTo().frame(frameIndex); statement
+<li> Can get the number of frames present in the web page using: driver.findElements(By.tagName("frame")).size();
+<h4>MouseActions
+<li>Sometimes we will come across draggable objects in our web applications
+<li>Mouse actions can be done on such objects
+<li>Statement for mouse actions: Actions action = new Actions(driver);
+<li>action.dragAndDrop(srcWebElement, destWebElement).build().perform();
+<h3>Cookies verification</h3>
+<li>At times we get test cases to verify that a specific cookie is present after performing an action in the application.
+<li>In such cases, we can use the getCookies method of driver.manage() to iterate through the cookies and verify
+<h4>To verify that a certain cookie is present:
+<li>First we need to get all the cookies and assign it to a Set of type Cookie
+<li>Create an Iterator object on the Set object using Iterator iteratorName = setObject.iterator(); method
+<li>while iterator object has next element, iterate and find the cookie
+<h3>Getting the co-ordinates of an element</h3>
+        <li>int x = driver.findElement(By.xpath("//a[contains(text(), 'A/B Testing')]")).getLocation().x;
+        <li>int y = driver.findElement(By.xpath("//a[contains(text(), 'A/B Testing')]")).getLocation().y;
