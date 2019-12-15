@@ -48,3 +48,16 @@ wait.until(ExpectedConditions.visibilityOf(driver.findElementBy.Id("xyz")));
 <h3>Getting the co-ordinates of an element</h3>
         <li>int x = driver.findElement(By.xpath("//a[contains(text(), 'A/B Testing')]")).getLocation().x;
         <li>int y = driver.findElement(By.xpath("//a[contains(text(), 'A/B Testing')]")).getLocation().y;
+<h3>Database validations </h4>
+<h4>4 step process:
+<li> Step 1: Associate the Connector jar file for the database (mySql jar is associated here) and load the driver using the Class.forName method <br>
+Statement: <br>Class.forName("com.mysql.cj.jdbc.Driver");<br><br>
+<li> Step 2: Create the connection object using Driver.getConnection method (will return connection object)<br>
+Statement: <br>Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/seleniumpractice", "root", "Colb@121"); <br><br>
+<li> Step 3: Create the statement object and pass the query in statementObj.executeQuery method => Returns result set<br>
+Statement smt = con.createStatement(); //Returns statement to execute query
+ResultSet rs = smt.executeQuery("select FIRSTNAME from employeeInfo");<br><br>
+<li> Step 4: Retrieve the results from the result set <br>
+        while(rs.next()) {  <br>
+            System.out.println(rs.getString("FIRSTNAME")); <br>
+        } <br>
