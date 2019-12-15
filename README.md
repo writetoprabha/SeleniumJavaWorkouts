@@ -48,8 +48,8 @@ wait.until(ExpectedConditions.visibilityOf(driver.findElementBy.Id("xyz")));
 <h3>Getting the co-ordinates of an element</h3>
         <li>int x = driver.findElement(By.xpath("//a[contains(text(), 'A/B Testing')]")).getLocation().x;
         <li>int y = driver.findElement(By.xpath("//a[contains(text(), 'A/B Testing')]")).getLocation().y;
-<h3>Database validations </h4>
-<h4>4 step process:
+<h3>Database validations </h3>
+<h4>4 step process: </h4>
 <li> Step 1: Associate the Connector jar file for the database (mySql jar is associated here) and load the driver using the Class.forName method <br>
 Statement: <br>Class.forName("com.mysql.cj.jdbc.Driver");<br><br>
 <li> Step 2: Create the connection object using Driver.getConnection method (will return connection object)<br>
