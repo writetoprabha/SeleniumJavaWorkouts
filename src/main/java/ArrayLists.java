@@ -10,7 +10,7 @@ import java.util.ArrayList;
    * Size is dynamic - no need to define the size
    * Can be used to retrieve group of elements from the webpage and store them in arrayList
    * Example: Retrieve all the links displayed in the webpage and print it.
-   * Whenever an xpath retrieves more than 1 element, it should be stored in arrayList or any other collection API
+   * Whenever an xpath retrieves more than 1 element, it should be stored in arrayList, List or any other collection API
  */
 public class ArrayLists {
     public static void main(String[] args) {
