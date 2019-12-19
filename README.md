@@ -65,8 +65,8 @@ ResultSet rs = smt.executeQuery("select FIRSTNAME from employeeInfo");<br><br>
 
 
 <h3> API Validations</h4>
-<h4> To invoke a REST service with Java:</h4>
 Commit: https://github.com/writetoprabha/APIAutomation/commit/a5dd04bb51242f8a85c7743fdb1800950faf218b
+<h4> To invoke a REST service with Java:</h4>
 <ol>
 <li>Set the baseURI property of the RESTASSURED static class<br> Example: <br/>RestAssured.baseURI = "http://restapi.demoqa.com/utilities/weather/city";</li>  
 <li>Create the RequestSpecification object and assign it with RestAssured.Given() method. <br>Example:<br/> RequestSpecification httpRequest = ResetAssured.Given();</li>
