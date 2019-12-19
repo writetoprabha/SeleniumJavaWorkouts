@@ -49,6 +49,7 @@ wait.until(ExpectedConditions.visibilityOf(driver.findElementBy.Id("xyz")));
         <li>int x = driver.findElement(By.xpath("//a[contains(text(), 'A/B Testing')]")).getLocation().x;
         <li>int y = driver.findElement(By.xpath("//a[contains(text(), 'A/B Testing')]")).getLocation().y;
 <h3>Database validations </h3>
+Commit: https://github.com/writetoprabha/SeleniumJavaWorkouts/commit/164719c218181d95b1c10a8e49dcaf7467052579
 <h4>4 step process: </h4>
 <li> Step 1: Associate the Connector jar file for the database (mySql jar is associated here) and load the driver using the Class.forName method <br>
 Statement: <br>Class.forName("com.mysql.cj.jdbc.Driver");<br><br>
@@ -65,6 +66,7 @@ ResultSet rs = smt.executeQuery("select FIRSTNAME from employeeInfo");<br><br>
 
 <h3> API Validations</h4>
 <h4> To invoke a REST service with Java:</h4>
+Commit: https://github.com/writetoprabha/APIAutomation/commit/a5dd04bb51242f8a85c7743fdb1800950faf218b
 <ol>
 <li>Set the baseURI property of the RESTASSURED static class<br> Example: <br/>RestAssured.baseURI = "http://restapi.demoqa.com/utilities/weather/city";</li>  
 <li>Create the RequestSpecification object and assign it with RestAssured.Given() method. <br>Example:<br/> RequestSpecification httpRequest = ResetAssured.Given();</li>
