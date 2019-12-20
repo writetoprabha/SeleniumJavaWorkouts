@@ -3,7 +3,7 @@ import java.lang.reflect.Method;
 
 /* Reflection API is to execute the functions specified in string variables*/
 public class ReflectionApi {
-    public static void main(String[] args) throws NoSuchMethodException, Invocation TargetException, IllegalAccessException {
+    public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, InvocationTargetException, IllegalAccessException {
         String methodName = "sampleFunction";
         Method method = ReflectionApi.class.getMethod(methodName, String.class);
         method.invoke(method,"Hello");

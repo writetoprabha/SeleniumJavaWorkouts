@@ -87,3 +87,13 @@ Notes:
         httpRequest.body(requestPayload.toJSONString()); <br/>
 <hr>
 </li> 
+
+<h4> API Testing using Rest Assured BDD Approach </h4>
+Commit: 
+<li>Need to include the below static packages to perform simple REST API validations with BDD approach </br>
+<br>io.restassured.RestAssured.*; <br>
+import static org.hamcrest.Matchers.*;
+</li>
+<li>Both POST and GET methods can be invoked and validated</li>
+<li>Supports both XML and JSON responses</li>
+<li>Xpath can be used to verify XML responses</li>
