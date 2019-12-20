@@ -89,7 +89,7 @@ Notes:
 </li> 
 
 <h4> API Testing using Rest Assured BDD Approach </h4>
-Commit: 
+Commit: https://github.com/writetoprabha/SeleniumJavaWorkouts/commit/56f7a9d5f83afa869b78dcb60fbaec283be9cae4
 <li>Need to include the below static packages to perform simple REST API validations with BDD approach </br>
 <br>io.restassured.RestAssured.*; <br>
 import static org.hamcrest.Matchers.*;
