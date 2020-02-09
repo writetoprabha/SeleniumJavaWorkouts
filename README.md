@@ -14,7 +14,7 @@ Commit for the above topics: https://github.com/writetoprabha/SeleniumJavaWorkou
 <li>driver.manage.timeouts().implicitlyWait(20, TimeUnit.SECONDS); <br>
 <li>driver.manage.timeouts().pageLoadTimeout(20, TimeUnit.SECONDS); => to make selenium wait for 20 seconds for page load <br>
 <li>driver.manage.timeouts().setScriptTimeout(20, Timeunit.SECONDS); => to make selenium wait for ajax scripts to execute
-<h4>Explicity Wait</h4>
+<h4>Explicitly Wait</h4>
 <li>To make selenium wait for an element
 <li>Sample Code: <br>
 WebDriverWait wait = new WebDriverWait(driver, 10);  => takes the driver and timeout in seconds as input<br>
@@ -64,7 +64,7 @@ ResultSet rs = smt.executeQuery("select FIRSTNAME from employeeInfo");<br><br>
         } <br>
 
 
-<h3> API Validations</h4>
+<h3> API Validations</h3>
 Commit: https://github.com/writetoprabha/APIAutomation/commit/a5dd04bb51242f8a85c7743fdb1800950faf218b
 <h4> To invoke a REST service with Java:</h4>
 <ol>
@@ -90,10 +90,75 @@ Notes:
 
 <h4> API Testing using Rest Assured BDD Approach </h4>
 Commit: 
-<li>Need to include the below static packages to perform simple REST API validations with BDD approach </br>
+<li>Need to include the below static packages to perform simple REST API validations with BDD approach</li>
 <br>io.restassured.RestAssured.*; <br>
 import static org.hamcrest.Matchers.*;
-</li>
 <li>Both POST and GET methods can be invoked and validated</li>
 <li>Supports both XML and JSON responses</li>
 <li>Xpath can be used to verify XML responses</li>
+
+<H3>Mobile Automation using Appium:</h3>
+<li> Appium supports both Android and iOS automation</li>
+<li>Works well for Native, Hybrid and mobile web browsers</li>
+<li>Comes from selenium family</li>
+
+<h4>Softwares needed:</h4>
+<li>Android Studio for android mobile emulator</li>
+<li>XCode for iOS mobile emulator</li>
+<li>Appium Server</li>
+<li>Appium Client</li>
+<li>UI Automation Viewer - to identify elements in the mobile app</li>
+
+<h5>Android Studio</h5>
+<li>Android studio is required for creating mobile emulators</li>
+<li>Need to set ANDROID_HOME environment variable</li>
+<li>The UI Automation Viewer comes along with Android studio and is located under the below path</li>
+~/Android/Sdk/emulator/bin
+<h5>Appium Server</h5>
+<li>Appium Server listens to Appium client for commands to perform on the mobile application under test</li>
+<li>Appium Server is present in npm package and can be globally installed using the below command</li>
+npm install -g appium
+<li>Appium Server can be started by running the command appium in terminal</li>
+<li>Appium runs on the 127.0.0.1:4723/wd/hub location</li>
+<h5>Appium Client</h5>
+<li>Appium clients are available for all the languages supported by selenium</li>
+<li>Dependency for Appium Java client can be used to work on Java language</li>
+
+
+<h5>When creating the driver  for mobile automation, we need to tell the below information</h5>
+<li>Operating system in which the automation needs to be carried out</li>
+<li>Emulator name (DEVICE_NAME) in which the automation needs to be performed</li>
+<li>Application (APP) which needs to be launched on the mobile for automation</li>
+<li>All these can be done using DesiredCapabilities object in Java as follows</li>
+
+<code>
+        
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+
+        //To tell Appium server whether to perform the automation on Android or iOS device, specify the framework name:
+        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
+
+        //Name of the emulator in android studio
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel_3a_XL_API_28");
+
+        //To tell Appium server which app to open:
+        capabilities.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + "/apps/ApiDemos-debug.apk");
+
+
+        //Driver object creation to perform the automation. Takes 2 arguments -
+        AndroidDriver<AndroidElement> driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+
+</code>
+
+<li>Identification of elements displayed on the app are done using UI Automation Viewer tool</li>
+
+<code>
+        
+        driver.findElement(By.xpath("//android.widget.TextView[@text='Preference']")).click();
+        driver.findElement(By.xpath("//android.widget.TextView[@text='3. Preference dependencies']")).click();
+        driver.findElement(By.xpath("//android.widget.CheckBox[@resource-id='android:id/checkbox']")).click();
+        driver.findElement(By.xpath("//android.widget.TextView[@text='WiFi settings']")).click();
+        driver.findElement(By.xpath("//android.widget.EditText[@resource-id='android:id/edit']")).sendKeys("Some text goes here");
+        driver.findElement(By.xpath("//android.widget.Button[@text='OK']")).click()
+</code>
+      
