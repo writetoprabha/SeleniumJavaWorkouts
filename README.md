@@ -46,8 +46,11 @@ wait.until(ExpectedConditions.visibilityOf(driver.findElementBy.Id("xyz")));
 <li>Create an Iterator object on the Set object using Iterator iteratorName = setObject.iterator(); method
 <li>while iterator object has next element, iterate and find the cookie
 <h3>Getting the co-ordinates of an element</h3>
-        <li>int x = driver.findElement(By.xpath("//a[contains(text(), 'A/B Testing')]")).getLocation().x;
-        <li>int y = driver.findElement(By.xpath("//a[contains(text(), 'A/B Testing')]")).getLocation().y;
+<code>
+        int x = driver.findElement(By.xpath("//a[contains(text(), 'A/B Testing')]")).getLocation().x;
+        int y = driver.findElement(By.xpath("//a[contains(text(), 'A/B Testing')]")).getLocation().y;
+</code>
+
 <h3>Database validations </h3>
 Commit: https://github.com/writetoprabha/SeleniumJavaWorkouts/commit/164719c218181d95b1c10a8e49dcaf7467052579
 <h4>4 step process: </h4>
@@ -59,10 +62,11 @@ Statement: <br>Connection con = DriverManager.getConnection("jdbc:mysql://localh
 Statement smt = con.createStatement(); //Returns statement to execute query
 ResultSet rs = smt.executeQuery("select FIRSTNAME from employeeInfo");<br><br>
 <li> Step 4: Retrieve the results from the result set <br>
+<code>
         while(rs.next()) {  <br>
             System.out.println(rs.getString("FIRSTNAME")); <br>
         } <br>
-
+</code>
 
 <h3> API Validations</h3>
 Commit: https://github.com/writetoprabha/APIAutomation/commit/a5dd04bb51242f8a85c7743fdb1800950faf218b
@@ -76,7 +80,7 @@ Commit: https://github.com/writetoprabha/APIAutomation/commit/a5dd04bb51242f8a85
 
 Notes:
 <li>For POST requests, we need to add the payload and header as below: <br>
-<hr>
+<code>
         JSONObject requestPayload = new JSONObject(); <br/>
         requestPayload.put("FirstName", firstName); <br/>
         requestPayload.put("LastName", lastName); <br/>
@@ -85,7 +89,7 @@ Notes:
         requestPayload.put("Email", emailId); <br/> <br/>
         httpRequest.header("Content-Type", "application/json"); <br/>
         httpRequest.body(requestPayload.toJSONString()); <br/>
-<hr>
+</code>
 </li> 
 
 <h4> API Testing using Rest Assured BDD Approach </h4>
@@ -153,7 +157,6 @@ npm install -g appium
 
         //Driver object creation to perform the automation. Takes 2 arguments -
         AndroidDriver<AndroidElement> driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-
 </code>
 
 <li>Identification of elements displayed on the app are done using UI Automation Viewer tool</li>
