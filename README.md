@@ -200,5 +200,6 @@ touch.longPress(element(source)).moveTo(element(destination)).release().perform(
 
 <code>
 driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Visibility\"));");
+
 driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Date Widgets\"));");
 </code>
