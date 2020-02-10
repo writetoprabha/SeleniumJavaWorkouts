@@ -199,7 +199,6 @@ touch.longPress(element(source)).moveTo(element(destination)).release().perform(
 <li>Using UIAndroidAutomator's UiScrollable method, we can scroll to a particular element on the screen</li>
 
 <code>
-
 driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Visibility\"));");
-
+driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Date Widgets\"));");
 </code>
