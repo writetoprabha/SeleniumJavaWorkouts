@@ -177,4 +177,29 @@ npm install -g appium
         driver.findElement(By.xpath("//android.widget.EditText[@resource-id='android:id/edit']")).sendKeys("Some text goes here");
         driver.findElement(By.xpath("//android.widget.Button[@text='OK']")).click()
 </code>
-      
+  
+<h4>Touch Action</h4>
+<li>Appium supports performing gestures on the app - like long press, swipe, scroll, tap etc., </li>
+<li>TouchAction class's longPress method can be used to perform long press and drag operations </li>
+
+<code>
+
+        TouchAction touch = new TouchAction(driver);
+
+        touch.longPress(LongPressOptions.longPressOptions().withElement(element(source)).withDuration(Duration.ofSeconds(2))).moveTo(element(destination)).release().perform();
+
+</code>
+
+<li>The longPress statement can also be written like below</li> 
+
+<code>
+touch.longPress(element(source)).moveTo(element(destination)).release().perform();
+</code>  
+
+<li>Using UIAndroidAutomator's UiScrollable method, we can scroll to a particular element on the screen</li>
+
+<code>
+
+driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Visibility\"));");
+
+</code>
