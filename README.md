@@ -11,12 +11,11 @@ Commit for the above topics: https://github.com/writetoprabha/SeleniumJavaWorkou
 <h4>Implicit Wait:</h4>
 <li>it is the default timeout for all the driver.findElement statements.
 <li>If the element is not located within the given timeout SLA, NoSuchElementFound exception will be thrown
+  
 <code>
-
 driver.manage.timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 driver.manage.timeouts().pageLoadTimeout(20, TimeUnit.SECONDS); //=> to make selenium wait for 20 seconds for page load <br>
 driver.manage.timeouts().setScriptTimeout(20, Timeunit.SECONDS); //=> to make selenium wait for ajax scripts to execute
-
 </code>
 
 <h4>Explicitly Wait</h4>
