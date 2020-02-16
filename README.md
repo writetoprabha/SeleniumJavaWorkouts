@@ -47,24 +47,70 @@ for(String handle:handles) {
 <h3> Alerts, Frames and Mouse Actions:
 <h4>Alerts</h4>
 <li> When native java script alerts are displayed, we need to make the driver point to the alert window in order to perform operations/verify text displayed in the alert
-<li>To do so, we can use driver.switchTo().Alert() function => returns Alert object
+<li>To do so, we can use driver.switchTo().Alert() function => returns Alert object </li>
+
+<code>
+        driver.findElement(By.xpath("//button[contains(text(), 'Click for JS Alert')]")).click();
+
+        //Waits until the alert is displayed. Usually alerts are immediate.
+        // But it is always safe to use the explicit wait to wait until the alert is displayed.
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.alertIsPresent());
+
+        /*
+        After the alert is displayed, we need to make the driver point to the alert window.
+        driver.switchTo() statement is used
+        After performing actions on the alert, we need to point driver back to browser window. defaultContent() method is used for the same.
+        */
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+        driver.switchTo().defaultContent();
+</code>
+
 <h4>Frames</h4>
-<li>Frames are html pages within an another HTML page
-<li>In order to perform operations on frames, we need to point our driver to the frame. 
-<li> Can be done using driver.switchTo().frame(frameIndex); statement
-<li> Can get the number of frames present in the web page using: driver.findElements(By.tagName("frame")).size();
+<li>Frames are html pages within an another HTML page</li>
+<li>In order to perform operations on frames, we need to point our driver to the frame. </li>
+<li> Can be done using driver.switchTo().frame(frameIndex); statement</li>
+<li> Can get the number of frames present in the web page using: driver.findElements(By.tagName("frame")).size();</li>
+<code>
+        //retrieves the frame count in the web page
+        int frameCount = driver.findElements(By.tagName("iframe")).size();
+
+        if(frameCount > 0) {
+            driver.switchTo().frame(0);
+            System.out.println(driver.findElement(By.id("tinymce")).getText());
+            driver.switchTo().defaultContent();
+        }
+</code>
 <h4>MouseActions</h4>
-<li>Sometimes we will come across draggable objects in our web applications
-<li>Mouse actions can be done on such objects
-<li>Statement for mouse actions: Actions action = new Actions(driver);
-<li>action.dragAndDrop(srcWebElement, destWebElement).build().perform();
+<li>Sometimes we will come across draggable objects in our web applications</li>
+<li>Mouse actions can be done on such objects</li>
+<li>Statement for mouse actions: Actions action = new Actions(driver);</li>
+<li>action.dragAndDrop(srcWebElement, destWebElement).build().perform();</li>
+<code>
+        driver.get("https://the-internet.herokuapp.com/drag_and_drop");
+        WebElement src = driver.findElement(By.id("column-a"));
+        WebElement dest = driver.findElement(By.id("column-b"));
+        Actions action = new Actions(driver);
+        Thread.sleep(3000);
+        action.dragAndDrop(src, dest).build().perform();
+</code>
 <h3>Cookies verification</h3>
 <li>At times we get test cases to verify that a specific cookie is present after performing an action in the application.
 <li>In such cases, we can use the getCookies method of driver.manage() to iterate through the cookies and verify
 <h4>To verify that a certain cookie is present:</h4>
-<li>First we need to get all the cookies and assign it to a Set of type Cookie
-<li>Create an Iterator object on the Set object using Iterator iteratorName = setObject.iterator(); method
-<li>while iterator object has next element, iterate and find the cookie
+<li>First we need to get all the cookies and assign it to a Set of type Cookie</li>
+<li>Create an Iterator object on the Set object using Iterator iteratorName = setObject.iterator(); method</li>
+<li>while iterator object has next element, iterate and find the cookie</li>
+<code>
+        driver.get("https://secure01b.chase.com/web/auth/dashboard");
+        Set<Cookie> cookiesSet = driver.manage().getCookies(); //returns cookies present in the driver
+        Iterator cookies = cookiesSet.iterator(); //create the iterator object on the set object
+        while(cookies.hasNext()) {
+            Cookie cookie = (Cookie) cookies.next();
+            System.out.println(cookie.getName() + " = " + cookie.getValue());
+        }
+</code>
 <h3>Getting the co-ordinates of an element</h3>
 <code>
         int x = driver.findElement(By.xpath("//a[contains(text(), 'A/B Testing')]")).getLocation().x;

@@ -19,7 +19,7 @@ public class AlertManagement {
         driver.get("https://the-internet.herokuapp.com/javascript_alerts");
         driver.findElement(By.xpath("//button[contains(text(), 'Click for JS Alert')]")).click();
 
-        //Waits until the alert is displayed. Usualy alerts are immediate.
+        //Waits until the alert is displayed. Usually alerts are immediate.
         // But it is always safe to use the explicit wait to wait until the alert is displayed.
         WebDriverWait wait = new WebDriverWait(driver, 5);
         wait.until(ExpectedConditions.alertIsPresent());
