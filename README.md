@@ -30,6 +30,20 @@ wait.until(ExpectedConditions.visibilityOf(driver.findElementBy.Id("xyz")));
 <li>Static wait
 <li>Should not be used frequently
 <h4>HashSets to fetch different windows opened</h4>
+<li>Using driver.getWindowHandles() method, we can retrieve all the opened browser windows as follows: </li>
+<code>
+Set<String> handles = driver.getWindowHandles();
+System.out.println(handles);
+</code>
+
+<li>By iterating through the Set object, we can work on different windows as shown below: </li>
+<code>
+for(String handle:handles) {
+    driver.switchTo.window(handle);
+    driver.get("https://www.google.com");
+}
+</code>
+
 <h3> Alerts, Frames and Mouse Actions:
 <h4>Alerts</h4>
 <li> When native java script alerts are displayed, we need to make the driver point to the alert window in order to perform operations/verify text displayed in the alert

@@ -14,7 +14,8 @@ public class MobileBase {
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
 
         //Name of the emulator in android studio
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel_3a_XL_API_28");
+        //capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel_3a_XL_API_28");
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Device");
 
         //To tell Appium server which app to open:
         capabilities.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + "/apps/ApiDemos-debug.apk");
