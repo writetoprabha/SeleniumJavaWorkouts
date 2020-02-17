@@ -134,6 +134,22 @@ ResultSet rs = smt.executeQuery("select FIRSTNAME from employeeInfo");<br><br>
         } <br>
 </code>
 
+<li>Code for Database validation:</li>
+<code>
+        Class.forName("com.mysql.cj.jdbc.Driver"); //loads the driver for our next statement
+
+        //pass the connection string for MySql database. Returns connection object to create the statement
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/seleniumpractice", "root", "Colb@121");
+
+        Statement smt = con.createStatement(); //Returns statement to execute query
+
+        ResultSet rs = smt.executeQuery("select FIRSTNAME from employeeInfo");
+
+        while(rs.next()) {
+            System.out.println(rs.getString("FIRSTNAME"));
+        }
+</code>
+
 <h3> API Validations</h3>
 Commit: https://github.com/writetoprabha/APIAutomation/commit/a5dd04bb51242f8a85c7743fdb1800950faf218b
 <h4> To invoke a REST service with Java:</h4>
